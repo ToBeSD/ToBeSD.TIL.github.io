@@ -39,6 +39,8 @@ p2.name = "shim yosub";
 System.out.println(p1.name); // "shim yosub" 출력
 ```
 
+> Shim : 위의예제와 같이 동일한 객체를 여러 변수에서 참조할 수 있기떄문에, 객체의 변경에 의해 의도치않은 동작을 하게되는 경우가 일어난다. 떄문에 Immutable한 객체를 만드는 방법이 고안되었다고 생각한다. (e.g. Dto)
+
 ## 참조타입 변수의 ==, != 연산
 
 ==, != 연산자는 변수의 값이 같은지, 아닌지를 조사한다. 참조 타입 변수의 값은 객체의 번지이므로
@@ -55,4 +57,32 @@ refVar1 != refVar2 // false
 
 refVar1 == refVar3 // false
 refVar1 != refVar3 // true
+```
+
+### 以下の場合はどうだろう？
+```
+String refVar1 = "Shim";
+String refVar2 = "Shim";
+String refVar3 = "Yosub";
+
+refVar1 == refVar2 // false
+refVar1 == refVar3 // false
+refVar2 == refVar3 // false
+```
+
+refVar1, refVar2, refVar3は各々、メモリのHeap領域で別々の住所を持っている。
+なので、中身の文字列が一緒でもメモリ住所が違うので上記の例のような結果になる。
+
+### じゃあどうすればいい？String.equals()を使おう
+String.equals()メソッドは二つの文字列の中身が同じなのか比較するメソッド。
+メモリ住所の比較ではない。
+
+```
+String refVar1 = "Shim";
+String refVar2 = "Shim";
+String refVar3 = "Yosub";
+
+refVar1.equals(refVar2) // true
+refVar1.equals(refVar3) // false
+refVar2.equals(refVar3) // false
 ```
