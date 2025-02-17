@@ -43,46 +43,21 @@ System.out.println(p1.name); // "shim yosub" 출력
 
 ## 참조타입 변수의 ==, != 연산
 
-==, != 연산자는 변수의 값이 같은지, 아닌지를 조사한다. 참조 타입 변수의 값은 객체의 번지이므로
-참조 타입 번수의 ==,!= 연산자를 번지를 비교하는 것이 된다.
-번지가 같다면 동일한 객체를 참조하는 것이고, 다르다면 다른 객체를 참조하는 것이다.
+==, != 연산자는 변수의 값이 같은지를 비교한다.
+참조형 변수의 값은 객체의 주소(포인터)이므로,
+참조형 변수에서 ==, != 연산자는 주소를 비교한다.
+주소가 같다면 같은 객체를 참조하고 있으며, 다르면 서로 다른 객체를 참조하고 있다는 의미가 된다.
 
 ```
-String refVar1 = "name";
-String refVar2 = refVar1;
-String refVar3 = "age"
+Human human1 = new Human("Shim");
+Human human2 = new Human("Yosub");
+Human human3 = human1;
 
-refVar1 == refVar2 // true
-refVar1 != refVar2 // false
-
-refVar1 == refVar3 // false
-refVar1 != refVar3 // true
+human1 == human2 // false
+human1 == human3 // true
 ```
 
-### 以下の場合はどうだろう？
-```
-String refVar1 = "Shim";
-String refVar2 = "Shim";
-String refVar3 = "Yosub";
+human1과 human2는 각각 메모리의 Heap 영역에서 서로 다른 주소를 가지고 있다.
+따라서 내부 문자열이 동일하더라도 메모리 주소가 다르므로 위 예제처럼 false가 나온다.
 
-refVar1 == refVar2 // false
-refVar1 == refVar3 // false
-refVar2 == refVar3 // false
-```
-
-refVar1, refVar2, refVar3は各々、メモリのHeap領域で別々の住所を持っている。
-なので、中身の文字列が一緒でもメモリ住所が違うので上記の例のような結果になる。
-
-### じゃあどうすればいい？String.equals()を使おう
-String.equals()メソッドは二つの文字列の中身が同じなのか比較するメソッド。
-メモリ住所の比較ではない。
-
-```
-String refVar1 = "Shim";
-String refVar2 = "Shim";
-String refVar3 = "Yosub";
-
-refVar1.equals(refVar2) // true
-refVar1.equals(refVar3) // false
-refVar2.equals(refVar3) // false
-```
+반면, human1과 human3는 Heap 영역에서 같은 객체를 참조하고 있으므로 true가 된다.

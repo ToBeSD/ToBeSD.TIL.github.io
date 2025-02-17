@@ -51,41 +51,15 @@ System.out.println(p1.name); // "shim yosub" を出力
 アドレスが同じであれば同じオブジェクトを参照し、異なれば異なるオブジェクトを参照していることになる。
 
 ```
-String refVar1 = "name"; 
-String refVar2 = refVar1; 
-String refVar3 = "age";
+Human human1 = new Human("Shim");
+Human human2 = new Human("Yosub");
+Human human3 = human1;
 
-refVar1 == refVar2 // true 
-refVar1 != refVar2 // false
-
-refVar1 == refVar3 // false 
-refVar1 != refVar3 // true
+human1 == human2 // false
+human1 == human3 // true
 ```
 
-### 以下の場合はどうだろう？
-```
-String refVar1 = "Shim";
-String refVar2 = "Shim";
-String refVar3 = "Yosub";
-
-refVar1 == refVar2 // false
-refVar1 == refVar3 // false
-refVar2 == refVar3 // false
-```
-
-refVar1, refVar2, refVar3は各々、メモリのHeap領域で別々の住所を持っている。
+human1、human2は各々、メモリのHeap領域で別々の住所を持っている。
 なので、中身の文字列が一緒でもメモリ住所が違うので上記の例のような結果になる。
 
-### じゃあどうすればいい？String.equals()を使おう
-String.equals()メソッドは二つの文字列の中身が同じなのか比較するメソッド。
-メモリ住所の比較ではない。
-
-```
-String refVar1 = "Shim";
-String refVar2 = "Shim";
-String refVar3 = "Yosub";
-
-refVar1.equals(refVar2) // true
-refVar1.equals(refVar3) // false
-refVar2.equals(refVar3) // false
-```
+human1、human3はHeap領域に同じオブジェクトを参照しているのでtrueになる。
