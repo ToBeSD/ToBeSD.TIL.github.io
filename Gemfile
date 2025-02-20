@@ -34,14 +34,3 @@ gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem 'minimal-mistakes-jekyll', '~> 4.26', '>= 4.26.2'
-gem 'csv', '3.3.2'
-gem 'i18n', '1.14.7'
-gem 'jekyll-sass-converter', '3.1.0'
-gem 'json', '2.10.1'
-gem 'kramdown', '2.5.1'
-gem 'mercenary', '0.4.0'
-gem 'rouge', '4.5.1'
-gem 'terminal-table', '3.0.2'
-gem 'webrick', '1.9.1'
-gem 'public_suffix', '6.0.1'
-gem 'concurrent-ruby', '1.3.5'
