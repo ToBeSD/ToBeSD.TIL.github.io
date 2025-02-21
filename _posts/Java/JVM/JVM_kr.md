@@ -1,3 +1,11 @@
+---
+layout: post
+title: "JVM overview"
+date: 2025-02-13 20:00:00 +0900
+categories: [Java]
+tags: [Java, JVM]
+---
+
 ## JVM(Java Virtual Machine) 
 
 JVM(Java Virtual Machine)은 자바 프로그램을 실행하는 가상 머신으로, 자바 바이트코드(.class)를 실행할 수 있는 런타임 환경을 제공한다. 자바 프로그램이 운영체제(OS)와 독립적으로 동작할 수 있도록 해주며, 다양한 운영체제에서 동일한 바이트코드를 실행할 수 있게 한다.

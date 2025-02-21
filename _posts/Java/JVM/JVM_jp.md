@@ -1,3 +1,11 @@
+---
+layout: post
+title: "JVM overview"
+date: 2025-02-13 20:00:00 +0900
+categories: [Java]
+tags: [Java, JVM]
+---
+
 ## JVM(Java Virtual Machine)
 JVM(Java Virtual Machine)は、Javaプログラムを実行する仮想マシンであり、Javaバイトコード（.class）を実行できるランタイム環境を提供します。JavaプログラムがOSに依存せず動作できるようにし、異なるOS上でも同じバイトコードを実行できるようにします。
 
